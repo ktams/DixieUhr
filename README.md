@@ -15,6 +15,31 @@ Wenn das Demo-Programm mit einem Display soweit läuft, dann geht es hier weiter
 In den Ordner "DixieUhr" wird nun die im Repo dargestellt Verzeichnisstruktur erstellt. Das ausführbare Programm steht dabei im Ordner bin bereit. Wer meine Verzeichnisstruktur übernommen hat, kann das Programm direkt nutzen. Es muss allerdings mit sudo ausgeführt werden.
 
 Um das Programm direkt nach dem Einschalten automatisch zu starten, muss das Script dixie aus dem Ordner src nach /etc/init.d verschoben werden:
+
+
 <code>sudo mv DixieUhr/src/dixie /usr/local/bin/</code>
+
+Dann noch ein paar Rechte setzen:
+
+
+<code>sudo chmod 755 /etc/init.d/dixie</code>
+
+Jetzt können wir das script testen:
+
+
+<code>sudo /etc/init.d/dixie start</code>
+
+und gleich darauf mit <strg>c beenden.
+
+Damit das Skript beim booten auch aufgerufen wird, führen wir folgendes aus:
+
+  
+  <code>sudo update-rc.d NameDesSkripts defaults</code>
+
+  
+  Nun sollte das Programm bei starten auch ausgeführt werden. Solltest du eines Tages dich umentscheiden und das Programm aus dem Autostart nehmen wollen, kannst du dies mit:
+  
+  
+<code>sudo update-rc.d -f  NameDesSkripts remove</code>
 
 
