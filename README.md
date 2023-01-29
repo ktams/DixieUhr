@@ -14,6 +14,7 @@ Zunächst müssen ein paar Dinge erledigt werden.
 Wenn das Demo-Programm mit einem Display soweit läuft, dann geht es hier weiter.
 In den Ordner "DixieUhr" wird nun die im Repo dargestellt Verzeichnisstruktur erstellt. Das ausführbare Programm steht dabei im Ordner bin bereit. Wer meine Verzeichnisstruktur übernommen hat, kann das Programm direkt nutzen. Es muss allerdings mit sudo ausgeführt werden.
 
-Um das Programm direkt nach dem Einschalten automatisch zu starten, muss n
+Um das Programm direkt nach dem Einschalten automatisch zu starten, muss das Script dixie aus dem Ordner src nach /etc/init.d verschoben werden:
+<code>sudo mv DixieUhr/src/dixie /usr/local/bin/</code>
 
 
