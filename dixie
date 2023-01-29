@@ -1,0 +1,28 @@
+### BEGIN INIT INFO
+# Provides: dixieuhr
+# Required-Start: $syslog
+# Required-Stop: $syslog
+# Default-Start: 5
+# Default-Stop: 0 1 6
+# Short-Description: Dixie Uhr
+# Description: Alternative Ansteuerubg der Dixie Uhr nach Zeitschrift Make
+### END INIT INFO
+
+case "$1" in
+    start)
+        echo "dixie wird gestartet"
+        # Starte Programm
+        /usr/local/bin/dixie
+        ;;
+    stop)
+        echo "dixie wird beendet"
+        # Beende Programm
+        killall dixie
+        ;;
+    *)
+        echo "Benutzt: /etc/init.d/dixie {start|stop}"
+        exit 1
+        ;;
+esac
+ 
+exit 0 
