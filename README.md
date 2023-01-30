@@ -1,4 +1,4 @@
-#ACHTUNG: Beschreibung und Software noch nicht ganz fertig!
+# ACHTUNG: Beschreibung und Software noch nicht ganz fertig!
 # DixieUhr Ansteuerung mit einem Raspi Zero W
 In der Zeitschrift Make war ein Artikel über eine Selbstbau Uhr, die den Nixie Röhren nachempfunden ist https://www.heise.de/ratgeber/Bastelprojekt-Digitaluhr-mit-TFT-Displays-im-Stil-von-Nixie-Roehren-4937026.html. 
 Das hat mich so fasziniert, dass ich das unbedingt nachbauen musste. 
@@ -9,7 +9,7 @@ Zunächst habe ich die Ansteuerung wie in der Make beschrieben mit einem Arduino
 Zunächst müssen ein paar Dinge erledigt werden.
 1. Raspi und SD-Karte (ich habe eine 16GB genommen) besorgen. 
 2. SD-Karte mit Raspi OS flashen ([https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/operating-systems/)) und einrichten. Ich habe die Version Raspberry Pi OS with desktop genommen, dann kann man über VNC von der Ferne auf den Raspi zugreifen.
-3. Dem Raspi habe ich den Namen "dixieuhr" gegeben und den User "dixie" angelegt. Dies und die Verbindung zum Heimnetz über WLan kann man vorab anpassen.
+3. Dem Raspi habe ich den Namen "dixieuhr" gegeben und den User "dixie" angelegt. Dies und die Verbindung zum Heimnetz über WLan kann man vorab mit dem Tool "imager", das auch von der Raspi Seite herunter geladen werden kann, anpassen.
 5. Dann habe ich im Home Verzeichnis den Ordner "DixieUhr" angelegt. Auf diese Struktur bezieht sich das gesamte Programm. Wer das ändern möchte muss auch im Programm selbst die Pfade anpassen.
 6. Treiber für das TFT bzw. das Ansteuer-IC ST7735 installieren. Dazu bitte diesem Link folgen: https://github.com/gavinlyonsrepo/ST7735_TFT_RPI
 
