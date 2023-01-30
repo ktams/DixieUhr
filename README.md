@@ -18,7 +18,7 @@ In den Ordner "DixieUhr" wird nun die im Repo dargestellt Verzeichnisstruktur er
 Um das Programm direkt nach dem Einschalten automatisch zu starten, muss das Script dixie aus dem Ordner src nach /etc/init.d und das Programm aus bin nach /usr/local/bin/ verschoben werden:
 
 
-<code>sudo mv DixieUhr/src/dixie /etc/init.d/</code>
+<code>sudo mv DixieUhr/src/dixie /etc/init.d/</code><br>
 <code>sudo mv DixieUhr/bin/dixie /usr/local/bin/</code>
 
 Dann noch ein paar Rechte setzen:
@@ -50,7 +50,7 @@ Nach einem Neustart wird nun die Uhr automatisch initialisiert. Selbst ein Strom
 Direkt nach dem Start werden die TFT Displays initialisiert und dann die Uhrzeit angezeigt. Der Doppelpunkt verhält sich dann so: oberer Punkt blinkt -> es sind weniger als 30 Sekunden der nächsten Minute vergangen. Unterer Punkt blinkt -> Es dauert weniger als 30 Sekunden, bis die Uhr umspringt.
 Dies Verhalten kann man mit dem linken Taster auf dauerhaft Doppelpunkt umstellen.
 
-Wird der mittlere Taster betätigt, wird auf Datum umgestellt bzw. wieder zurück. Wenn man nicht auf Uhrzeit zurück stellt, wird nach spätestens 2 Minuten wieder auf Uhrzeit zurück gestellt.
+Wird der mittlere Taster betätigt, wird auf Datum umgestellt bzw. wieder zurück. Wenn man nicht auf Uhrzeit zurück stellt, wird nach spätestens 2 Minuten automatisch wieder auf Uhrzeit zurück gestellt.
 
 # Die Hardware
 Die folgende Tabelle zeigt die Verbindungen, die man zwischen Displays und der 40pol. Stiftleiste des Raspi herstellen muss.
