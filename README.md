@@ -4,6 +4,8 @@ In der Zeitschrift Make war ein Artikel über eine Selbstbau Uhr, die den Nixie 
 Das hat mich so fasziniert, dass ich das unbedingt nachbauen musste. 
 Die Nixie Röhren werden simuliert durch je ein TFT Display, das in ein Schutzglas eingebaut ist. Da mir die Ukrainische Version der Röhre besser gefällt, habe ich meinen 3D-Drucker bemüht und das ein wenig abgewandelt. Aber darum soll es hier nicht gehen.
 Zunächst habe ich die Ansteuerung wie in der Make beschrieben mit einem Arduino gemacht. Statt der Taster habe ich Touchflächen genommen. Der Atmel-Prozessor kann damit ja umgehen. Leider reicht der Speicher nicht wirklich aus und die Geschwindigkeit ist auch zu klein, so dass ich ständig die Uhr nachstellen musste. Deshalb habe ich mich entschieden, die Ansteuerung mit einem Raspi Zero W selbst zu machen. 
+![DixieUhr](https://user-images.githubusercontent.com/10975733/215593527-d5595cdf-eeaa-471c-b8f5-ce9c2577ff51.jpg)
+
 
 # Voraussetzungen
 Zunächst müssen ein paar Dinge erledigt werden.
@@ -109,4 +111,5 @@ XX ist Chip Select und für die 5 TFTs wie folgt festgelegt:
 
 
 Die drei Taster sind an Pin 36 (links), Pin 38 (Mitte) und Pin 40 (rechts) angeschlossen. Werden diese Pins mit Ground verbunden, dann lösen sie die entsprechende Aktion aus. Die Taster werden jede Sekunde einmal abgefragt. Mann muss also im ungünstigsten Fall eine Sekunde den Taster gedrückt halten. Die Aktion ist aber sofort aktiv und wird im Display angezeigt.
+![RaspI-Zero-Anschluss](https://user-images.githubusercontent.com/10975733/215592685-c5fab713-e974-4ba1-8314-3fae2f500d09.jpg)
 
