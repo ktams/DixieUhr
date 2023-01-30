@@ -1,3 +1,4 @@
+#ACHTUNG: Beschreibung und Software noch nicht ganz fertig!
 # DixieUhr Ansteuerung mit einem Raspi Zero W
 In der Zeitschrift Make war ein Artikel über eine Selbstbau Uhr, die den Nixie Röhren nachempfunden ist https://www.heise.de/ratgeber/Bastelprojekt-Digitaluhr-mit-TFT-Displays-im-Stil-von-Nixie-Roehren-4937026.html. 
 Das hat mich so fasziniert, dass ich das unbedingt nachbauen musste. 
@@ -54,6 +55,58 @@ Wird der mittlere Taster betätigt, wird auf Datum umgestellt bzw. wieder zurüc
 
 # Die Hardware
 Die folgende Tabelle zeigt die Verbindungen, die man zwischen Displays und der 40pol. Stiftleiste des Raspi herstellen muss.
+<table>
+<tr>
+<th>Pin TFT</th><th>Pin Raspi</th><th>Funktion</th>
+</tr>
+<tr>
+<td>1</td><td>6 oder 20</td><td>Ground</td>
+</tr>
+<tr>
+<td>2</td><td>17</td><td>3,3V VCC</td>
+</tr>
+<tr>
+<td>3</td><td>29</td><td>SCL</td>
+</tr>
+<tr>
+<td>4</td><td>31</td><td>SDA</td>
+</tr>
+<tr>
+<td>5</td><td>22</td><td>Reset</td>
+</tr>
+<tr>
+<td>6</td><td>18</td><td>D/C</td>
+</tr>
+<tr>
+<td>7</td><td>XX</td><td>CS</td>
+</tr>
+<tr>
+<td>8</td><td>1</td><td>LED</td>
+</tr>
+</table>
 
-Ich habe drei Taster vorgesehen
+XX ist Chip Select und für die 5 TFTs wie folgt festgelegt:
+<table>
+<tr>
+<th>TFT Nr</th><th>Pin Raspi</th><th>Funktion</th>
+</tr>
+<tr>
+<td>1</td><td>24</td><td>Stunde 10er</td>
+</tr>
+<tr>
+<td>2</td><td>26</td><td>Stunde 1er</td>
+</tr>
+<tr>
+<td>3</td><td>21</td><td>Doppelpunkt</td>
+</tr>
+<tr>
+<td>4</td><td>19</td><td>Minute 10er</td>
+</tr>
+<tr>
+<td>5</td><td>23</td><td>Minute 1er</td>
+</tr>
+</table>
+
+
+Die drei Taster sind an Pin 36 (links), Pin 38 (Mitte) und Pin 40 (rechts) angeschlossen. Werden diese Pins mit Ground verbunden, dann lösen sie die entsprechende Aktion aus. Die Taster werden jede Sekunde einmal abgefragt. Mann muss also im ungünstigsten Fall eine Sekunde den Taster gedrückt halten. Die Aktion ist aber sofort aktiv und wird im Display angezeigt.
 
