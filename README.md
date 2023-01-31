@@ -1,4 +1,3 @@
-# ACHTUNG: Beschreibung und Software noch nicht ganz fertig!
 # DixieUhr Ansteuerung mit einem Raspi Zero W
 In der Zeitschrift Make war ein Artikel über eine Selbstbau Uhr, die den Nixie Röhren nachempfunden ist https://www.heise.de/ratgeber/Bastelprojekt-Digitaluhr-mit-TFT-Displays-im-Stil-von-Nixie-Roehren-4937026.html. 
 Das hat mich so fasziniert, dass ich das unbedingt nachbauen musste. 
@@ -115,5 +114,6 @@ Die drei Taster sind an Pin 36 (links), Pin 38 (Mitte) und Pin 40 (rechts) anges
 <br>Wie man am Bild der Uhr sieht, habe ich Touch-Taster vorgesehen. Ursprünglich habe ich die mit dem Arduino direkt abgefragt. Das geht mit dem Raspi leider nicht. Also muss man entweder richtige Taster nehmen, oder wie ich Sensorplatinen (China oder Adafruit) einbauen oder den nun arbeitslosen Arduino damit beauftragen. <br>
 ![Touchsensor](https://user-images.githubusercontent.com/10975733/215832064-42bb1aa4-085e-4800-920d-910371f6455f.jpg)
 https://www.amazon.de/AZDelivery-Digitaler-Kapazitiver-kompatibel-inklusive/dp/B089QJW6KC/ref=sr_1_13?keywords=Touch%2BSensor&qid=1675184520&sr=8-13&th=1
-
+<br>Der dritte Taster ist derzeit noch ohne Funktion. Die Taster stammen ja noch aus der "Arduino-Zeit", wo man die Uhrzeit nach jedem neuen Einschalten stellen musste ;-)<br>
+Sobald ich dafür eine Verwendung habe, wird es hier dokumentiert.
 
