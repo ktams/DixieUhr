@@ -42,7 +42,7 @@ Damit das Skript beim booten auch aufgerufen wird, führen wir folgendes aus:
   <code>sudo update-rc.d dixie defaults</code>
 
   
-Nun sollte das Programm bei starten auch ausgeführt werden. Solltest du eines Tages dich umentscheiden und das Programm aus dem Autostart nehmen wollen, kannst du dies mit:
+Nun sollte das Programm nach dem Einschalten der Stromversorgung auch ausgeführt werden. Solltest du eines Tages dich umentscheiden und das Programm aus dem Autostart nehmen wollen, musst du folgendes machen:
   
   
 <code>sudo update-rc.d -f  dixie remove</code>
@@ -112,4 +112,8 @@ XX ist Chip Select und für die 5 TFTs wie folgt festgelegt:
 
 Die drei Taster sind an Pin 36 (links), Pin 38 (Mitte) und Pin 40 (rechts) angeschlossen. Werden diese Pins mit Ground verbunden, dann lösen sie die entsprechende Aktion aus. Die Taster werden jede Sekunde einmal abgefragt. Mann muss also im ungünstigsten Fall eine Sekunde den Taster gedrückt halten. Die Aktion ist aber sofort aktiv und wird im Display angezeigt.
 ![RaspI-Zero-Anschluss](https://user-images.githubusercontent.com/10975733/215592685-c5fab713-e974-4ba1-8314-3fae2f500d09.jpg)
+<br>Wie man am Bild der Uhr sieht, habe ich Touch-Taster vorgesehen. Ursprünglich habe ich die mit dem Arduino direkt abgefragt. Das geht mit dem Raspi leider nicht. Also muss man entweder richtige Taster nehmen, oder wie ich Sensorplatinen (China oder Adafruit) einbauen oder den nun arbeitslosen ![Touchsensor](https://user-images.githubusercontent.com/10975733/215832064-42bb1aa4-085e-4800-920d-910371f6455f.jpg)
+https://www.amazon.de/AZDelivery-Digitaler-Kapazitiver-kompatibel-inklusive/dp/B089QJW6KC/ref=sr_1_13?keywords=Touch%2BSensor&qid=1675184520&sr=8-13&th=1
+
+Arduino damit beauftragen. <br>
 
