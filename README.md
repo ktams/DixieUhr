@@ -116,7 +116,7 @@ Die drei Taster sind an Pin 36 (links), Pin 38 (Mitte) und Pin 40 (rechts) anges
 https://www.amazon.de/AZDelivery-Digitaler-Kapazitiver-kompatibel-inklusive/dp/B089QJW6KC/ref=sr_1_13?keywords=Touch%2BSensor&qid=1675184520&sr=8-13&th=1
 <br>
 # Anpassungen
-Da ich aus Gründen der Störsicherheit die Taster gegen GND schalten lasse, muss dieser Touch-Taster leider umgebaut werden. Im Original schaltet er bei Betätigung den Ausgang auf HIGH. Wer den Taster so betreiben möchte, weil er den Umbau scheut, muss im Programm die Pull-Ups für die Eingänge auf Pull-down ändern, oder ganz weglassen. Im Programm sind daas die Zeilen 302, 304 und 306 die bearbeitet oder gelöscht werden müssen. Danach wird im Ordner "DixieUhr" make aufgerufen. Die ausführbare Datei wird dann wieder im Ordner "bin" bereitgestellt. Dies ist allerdings von mir nicht getestet worden.
+Da ich aus Gründen der Störsicherheit die Taster gegen GND schalten lasse, muss dieser Touch-Taster leider umgebaut werden. Im Original schaltet er bei Betätigung den Ausgang auf HIGH. Wer den Taster so betreiben möchte, weil er den Umbau scheut, muss im Programm die Pull-Ups für die Eingänge auf Pull-down ändern, oder ganz weglassen. Im Programm sind das die Zeilen 302, 304 und 306 die bearbeitet oder gelöscht werden müssen. Danach wird im Ordner "DixieUhr" make aufgerufen. Die ausführbare Datei wird dann wieder im Ordner "bin" bereitgestellt. Dies ist allerdings von mir nicht getestet worden.
 <br>Der dritte Taster ist derzeit noch ohne Funktion. Die Taster stammen ja noch aus der "Arduino-Zeit", wo man die Uhrzeit nach jedem neuen Einschalten stellen musste ;-)<br>
 Sobald ich dafür eine Verwendung habe, wird es hier dokumentiert.
 
