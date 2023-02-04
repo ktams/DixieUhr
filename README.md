@@ -114,7 +114,9 @@ Die drei Taster sind an Pin 36 (links), Pin 38 (Mitte) und Pin 40 (rechts) anges
 <br>Wie man am Bild der Uhr sieht, habe ich Touch-Taster vorgesehen. Ursprünglich habe ich die mit dem Arduino direkt abgefragt. Das geht mit dem Raspi leider nicht. Also muss man entweder richtige Taster nehmen, oder wie ich Sensorplatinen (China oder Adafruit) einbauen oder den nun arbeitslosen Arduino damit beauftragen. <br>
 ![Touchsensor](https://user-images.githubusercontent.com/10975733/215832064-42bb1aa4-085e-4800-920d-910371f6455f.jpg)
 https://www.amazon.de/AZDelivery-Digitaler-Kapazitiver-kompatibel-inklusive/dp/B089QJW6KC/ref=sr_1_13?keywords=Touch%2BSensor&qid=1675184520&sr=8-13&th=1
-<br>Da ich aus Gründen der Störsicherheitdie Taster gegen GND schalten lasse, muss dieser Touch-Taster leider umgebaut werden. Im Original schaltet er bei Betätigung den Ausgang auf HIGH. Wer den Taster so betreiben möchte, weil er den Umbau scheut, muss im Programm die Pull-Ups für die Eingänge auf Pull-down ändern, oder ganz weglassen. Im Programm sind daas die Zeilen 302, 304 und 306 die bearbeitet oder gelöscht werden müssen. Danach wird im Ordner "DixieUhr" make aufgerufen. Die ausführbare Datei wird dann wieder im Ordner "bin" bereitgestellt.
+<br>
+# Anpassungen
+Da ich aus Gründen der Störsicherheit die Taster gegen GND schalten lasse, muss dieser Touch-Taster leider umgebaut werden. Im Original schaltet er bei Betätigung den Ausgang auf HIGH. Wer den Taster so betreiben möchte, weil er den Umbau scheut, muss im Programm die Pull-Ups für die Eingänge auf Pull-down ändern, oder ganz weglassen. Im Programm sind daas die Zeilen 302, 304 und 306 die bearbeitet oder gelöscht werden müssen. Danach wird im Ordner "DixieUhr" make aufgerufen. Die ausführbare Datei wird dann wieder im Ordner "bin" bereitgestellt. Dies ist allerdings von mir nicht getestet worden.
 <br>Der dritte Taster ist derzeit noch ohne Funktion. Die Taster stammen ja noch aus der "Arduino-Zeit", wo man die Uhrzeit nach jedem neuen Einschalten stellen musste ;-)<br>
 Sobald ich dafür eine Verwendung habe, wird es hier dokumentiert.
 
