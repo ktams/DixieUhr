@@ -1,17 +1,17 @@
 /*
- * Project Name: ST7735_TFT_RPI  
+ * Project Name: Dixie-Uhr  
  * File: main.cpp
- * Description: library test file  
- * Author: Gavin Lyons.
- * Created May 2021
- * Description: See URL for full details.
- * NOTE :: USER OPTIONS 1-3 in SETUP function
- * URL: https://github.com/gavinlyonsrepo/ST7735_TFT_RPI
+ * Description: Steuerung der Dixie-Uhr nach Zeitschrift Make von Matthias Helneder mit einem Raspberry Pi Zero W
+ * Author: Kersten Tams.
+ * Created: February 2023
+ * Description: based on projekt ST7735_TFT_RPI from Gavin Lyons URL: https://github.com/gavinlyonsrepo/ST7735_TFT_RPI
+ * See URL for full details.
+ * URL: https://github.com/ktams/DixieUhr
  */
 
 // Section ::  libraries 
 #include <bcm2835.h> // for SPI GPIO and delays.
-#include <time.h> // for test 11 & FPS
+#include <time.h> 
 #include <iostream>
 #include <string>
 #include "ST7735_TFT.h"
@@ -19,11 +19,7 @@
 using namespace std;
 
 // Section :: Defines   
-//  Test timing related defines 
 #define TEST_DELAY1 1000
-#define TEST_DELAY2 2000
-#define TEST_DELAY5 5000
-#define CLOCK_DISPLAY_TIME 100
 
 // Section :: Globals 
 ST7735_TFT myTFT;
@@ -40,32 +36,20 @@ void Rcmd1(int8_t cs);
 void Rcmd2red(int8_t cs);
 void Rcmd3(int8_t cs);
 void Dixie(void); // Die Uhr
-
-void Test0(void);  // Print out all fonts 1-6
-void Test1A(void); // defined 16-bit Colors, text
-void Test1B(void); // print entire ASCII font 0 to 127, default font
-void Test1C(void); // print numbers int and float using draw functions
-void Test1D(void); // print numbers int and float using PRINT function
-void Test1E(void); // Print out font 7-8 using draw functions
-void Test2(void);  // font sizes(1-4) + character draw using draw functions
-void Test8(void);  // More shapes, media buttons graphic.
-void Test9(void);  // Rotate
-
-int64_t getTime(); // Utility for FPS test
-uint8_t* loadImage(char* name); // Utility for FPS test
+int64_t getTime(); 
+uint8_t* loadImage(char* name); 
 
 //  Section ::  MAIN loop
 
 int main(void) 
 {
-
 	if(!Setup(8)) {	// initialisiert das erste Display (0) und resettet die anderen mit
 		std::cout << "Problems with the Setup" << std::endl;
 		return -1;
 	}
 	myTFT.TFTsetRotation(TFT_Degress_180);
 	for(uint8_t i = 1; i < 5; i++) {
-		IniDisplay(i);	//Initialisiert das zweite Display (1)
+		IniDisplay(i);	//Initialisiert das zweite bis fünfte Display (1..4)
 	}
 	Dixie();
 	return 0;
@@ -75,12 +59,12 @@ int main(void)
 
 //  Section ::  Function Space 
 
-void SetGPIO(int8_t cs) {
+void SetGPIO(int8_t cs) {	// set the chip select of the wanted TFT
 	int8_t RST_TFT = 25;
 	int8_t DC_TFT = 24;
-	int8_t SCLK_TFT = 5; // 5, change to GPIO no for sw spi, -1 hw spi
-	int8_t SDIN_TFT = 6; // 6, change to GPIO no for sw spi, -1 hw spi
-	int8_t CS_TFT = cs ;  // 8, change to GPIO no for sw spi, -1 hw spi
+	int8_t SCLK_TFT = 5; 
+	int8_t SDIN_TFT = 6; 
+	int8_t CS_TFT = cs ; 
 	myTFT.TFTSetupGPIO(RST_TFT, DC_TFT, CS_TFT, SCLK_TFT, SDIN_TFT);
 }
 
@@ -121,8 +105,8 @@ void writeData(uint8_t spidatabyte, int8_t cs) {
 }
 
 void spiWriteSoftware(uint8_t spidata, int8_t cs) {
-	int8_t SCLK_TFT = 5; // 5, change to GPIO no for sw spi, -1 hw spi
-	int8_t SDIN_TFT = 6; // 6, change to GPIO no for sw spi, -1 hw spi
+	int8_t SCLK_TFT = 5; 
+	int8_t SDIN_TFT = 6; 
 	uint8_t i;
 	for (i = 0; i < 8; i++) {
 		bcm2835_gpio_write(SDIN_TFT, LOW);
@@ -212,8 +196,8 @@ void Rcmd3(int8_t cs) {
 void IniDisplay(int8_t disp)
 {
 	std::cout << "Initialize next TFT " << std::endl;
-	uint8_t OFFSET_COL = 0;  // 2, These offsets can be adjusted for any issues->
-	uint8_t OFFSET_ROW = 0; // 3, with manufacture tolerance/defects
+	uint8_t OFFSET_COL = 0;  //  These offsets can be adjusted for any issues->
+	uint8_t OFFSET_ROW = 0; // with manufacture tolerance/defects
 	uint16_t TFT_WIDTH = 128;// Screen width in pixels
 	uint16_t TFT_HEIGHT = 160; // Screen height in pixels
 	int8_t cs = 0;
@@ -242,8 +226,8 @@ void IniDisplay(int8_t disp)
 	myTFT.TFTInitScreenSize(OFFSET_COL, OFFSET_ROW , TFT_WIDTH , TFT_HEIGHT);
 
 	int8_t DC_TFT = 24;
-	int8_t SCLK_TFT = 5; // 5, change to GPIO no for sw spi, -1 hw spi
-	int8_t SDIN_TFT = 6; // 6, change to GPIO no for sw spi, -1 hw spi
+	int8_t SCLK_TFT = 5; 
+	int8_t SDIN_TFT = 6;
 //	TFT_DC_SetLow;
 	bcm2835_gpio_write(DC_TFT, LOW);
 //	TFT_DC_SetDigitalOutput;
@@ -313,7 +297,6 @@ void Dixie(void)
 // Set GPIO 16, 20, 21 to input with pull up
 	bcm2835_gpio_fsel(RPI_BPLUS_GPIO_J8_36, BCM2835_GPIO_FSEL_INPT);	
 	bcm2835_gpio_set_pud(RPI_BPLUS_GPIO_J8_36, BCM2835_GPIO_PUD_UP);
-	bcm2835_gpio_write(RPI_BPLUS_GPIO_J8_36, HIGH);
 	bcm2835_gpio_fsel(RPI_BPLUS_GPIO_J8_38, BCM2835_GPIO_FSEL_INPT);
 	bcm2835_gpio_set_pud(RPI_BPLUS_GPIO_J8_38, BCM2835_GPIO_PUD_UP);
 	bcm2835_gpio_fsel(RPI_BPLUS_GPIO_J8_40, BCM2835_GPIO_FSEL_INPT);
